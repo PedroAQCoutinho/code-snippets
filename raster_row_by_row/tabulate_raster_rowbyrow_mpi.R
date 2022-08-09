@@ -4,17 +4,23 @@ library(parallel)
 library(raster)
 library(foreign)
 
+##This code aims to tabulate a big raster row by row due to inssuficient memmory for the operations
+##This is based on MPI parallel processing approach and was used in a cluster with several processing cores
+
+#Load rasters
 
 #Alligned rasters
 r1 <- raster('raster1.tif')
 r2 <- raster('raster2.tif')
 
+#Create output table
 a.out <- data.frame(seq_numb = 1:20000)
 a.out$n  <- 0
+#Blocks
 bss <- blockSize(xav, minblocks = 15000)
 n <- bss$n
 
-
+#Operations over table function
 fun_ex <- function(i){
 	
   db <- data.frame(
@@ -42,7 +48,7 @@ fun_ex <- function(i){
 
 }
 
-
+#export results
 exporta <- function(){
 
         cl <- getCluster()
@@ -57,29 +63,28 @@ exporta <- function(){
 			
       d <- recvOneData(cl)
 
-			if (!d$value$success) {
-				saveRDS(d, 'erro.rds')
-				cat('erro no numero: ', d$value$tag, '\n'); flush.console();
-				stop('cluster error')
-			}
+	if (!d$value$success) {
+		saveRDS(d, 'erro.rds')
+		cat('erro no numero: ', d$value$tag, '\n'); flush.console();
+		stop('cluster error')
+	}
 
-			ni <- nodes + i
-			if (ni <= bss$n) {
-				sendCall(cl[[d$node]], fun_ex, ni, tag = ni)
-			}
+	ni <- nodes + i
+	if (ni <= bss$n) {
+		sendCall(cl[[d$node]], fun_ex, ni, tag = ni)
+	}
 
-	  	b <- d$value$tag
+      b <- d$value$tag
       print(paste0('recebido: ', b))
 
-			if(!all(is.na(d$value$value))){
-      a.out[match(s[,1], a.out[,1]), 'soma'] <- d$value$value[,2]
-			}
+      if(!all(is.na(d$value$value))){
+      a.out[match(s[,1], a.out[,1]), 'soma'] <- d$value$value[,2]}
       
-			rm(d)
+      rm(d)
       
       }
         
-		saveRDS(a.out, '/mnt/nfs/home/atlas/arquivos/temporarios/DSSAT_pasture/pasture/grid/contagem.rds')
+	saveRDS(a.out, '/mnt/nfs/home/atlas/arquivos/temporarios/DSSAT_pasture/pasture/grid/contagem.rds')
 
   
         return(NULL)
