@@ -1,0 +1,1 @@
+-- This code aims to select the max/min of some attribute per group using lateral on PostgreSQL
