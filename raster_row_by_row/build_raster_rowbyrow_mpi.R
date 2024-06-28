@@ -3,16 +3,18 @@ library(snow)
 library(parallel)
 library(Rmpi)
 
-##This code aims to build a big raster row by row due to inssuficient memmory for the operations
+rm(list=ls())
+##This code aims to build a big raster row by reofipjweiofw due to inssuficient memmory for the operations
 ##This is based on MPI parallel processing approach and was used in a cluster with several processing cores
 
-#Load rasters
-r1 <- raster('raster1.tif')
-r2 <- raster('raster.tif')
+#Load rastersa
+r1 <- raster('path/to/raster1')
+r2 <- raster('path/to/raster1')
 #Create an alligned output which will be overwrited
 output <- raster(r1)
 #Create blocks
-bss <- blockSize(output, minblocks = 10000)
+bss <- blockSize(output, minrows = 50); bss
+
 
 #Function for table management
 fun_ex <- function(i){
@@ -23,8 +25,8 @@ fun_ex <- function(i){
 		out = NA)
 
 	#if operations
-	sp <- which(db$ras2==10)
-	if(length(sp) > 0) db[sp, 'out'] <- db[sp, 'ras1']
+	sp <- which(is.na(db$ras2))
+	if(length(sp) > 0) db[sp, 'out'] <- 15
 	return(db$out)
 			
 }
@@ -44,7 +46,7 @@ exporta <- function(x){
  
 	#Start writing
          out <- writeStart(out,
-           filename = 'raster_output.tif',
+           filename = '/home/pedro/Documents/GIT_WORKSPACE/code-snippets/raster_row_by_row/rasters_prototipo/raster_output.tif',
            datatype = 'INT2U',
            format='raster'
         
@@ -83,7 +85,7 @@ exporta <- function(x){
  }
  
  #Cluster start
-cl <- makeCluster(168, type = 'MPI', outfile='')
+cl <- makeCluster(2, type = 'MPI', outfile='')
 options(rasterClusterObject = cl)
 options(rasterClusterCores = length(cl))
 options(rasterCluster = TRUE)
@@ -95,5 +97,8 @@ clusterExport(cl=cl,
 	ls())
 
 #Run
-output <- exporta(output)
+system.time(output <- exporta(output))
 stopCluster(cl)
+
+
+sleep(1)
