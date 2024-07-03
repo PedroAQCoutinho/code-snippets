@@ -2,8 +2,8 @@ import rasterio
 import numpy as np
 
 # Defina o caminho para o arquivo raster original e o novo arquivo raster
-input_raster_path = '/home/pedro/Documents/DADOS/pa_br_aptidao_250m.tif'
-output_raster_path = '/home/pedro/Documents/DADOS/pa_br_aptidao_250m_zndt.tif'
+input_raster_path = '/home/pedro/Documents/DADOS/Aptidao_BR_geotiff/IQscr_Crop_BR.tif'
+output_raster_path = '/home/pedro/Documents/DADOS/Aptidao_BR_geotiff/pa_br_aptidao_250m_zndt.tif'
 
 # Valor nulo (nodata) a ser usado no novo raster
 nodata_value = 0
