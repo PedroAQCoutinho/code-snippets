@@ -18,5 +18,5 @@ Problemas: O código funciona porém ele quebra a memória. Foram realizados tes
 
 Para obter ajuda:
 
-'python run.py -h'
+´python run.py -h´
 
