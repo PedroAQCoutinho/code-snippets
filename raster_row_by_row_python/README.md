@@ -12,7 +12,7 @@ Etapas do processamento:
 
 
 
-Problemas: O código funciona porém ele quebra a memória. Foram realizados testes e até com 1 nucleo de paralelização quebrou a memoria
+Problemas: O código funciona porém quebra a memória. Foram realizados testes e até com 1 nucleo de paralelização quebrou a memoria
 
 
 
