@@ -10,12 +10,11 @@ library(foreign)
 #Load rasters
 
 #Alligned rasters
+
 r1 <- raster('raster1.tif')
 r2 <- raster('raster2.tif')
 
-#Create output table
-a.out <- data.frame(seq_numb = 1:20000)
-a.out$n  <- 0
+
 #Blocks
 bss <- blockSize(xav, minblocks = 15000)
 n <- bss$n
@@ -76,9 +75,10 @@ exporta <- function(){
 
       b <- d$value$tag
       print(paste0('recebido: ', b))
-
+	#Altera a tabela out
       if(!all(is.na(d$value$value))){
-      a.out[match(s[,1], a.out[,1]), 'soma'] <- d$value$value[,2]}
+      dbWriteTable()
+	  #a.out[match(s[,1], a.out[,1]), 'soma'] <- d$value$value[,2]}
       
       rm(d)
       
@@ -86,12 +86,12 @@ exporta <- function(){
         
 	saveRDS(a.out, '/mnt/nfs/home/atlas/arquivos/temporarios/DSSAT_pasture/pasture/grid/contagem.rds')
 
-  
+
         return(NULL)
 }
 
 #Inicia o cluster de processamento
-cl <- makeCluster(80, type = 'MPI', outfile='')
+cl <- makeCluster(16, type = 'MPI', outfile='')
 options(rasterClusterObject = cl)
 options(rasterClusterCores = length(cl))
 options(rasterCluster = TRUE)
