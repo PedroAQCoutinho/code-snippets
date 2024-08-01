@@ -1,5 +1,5 @@
 
-# Config Files e .env File em R
+# Config files e .env File em R
 
 Este repositório foi criado para demonstrar o uso de arquivos de configuração (`config.json`) e arquivos `.env` em scripts R. 
 
