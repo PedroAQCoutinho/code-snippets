@@ -1,0 +1,4 @@
+INFO [2024-07-31 14:09:51] Este é um log de nível INFO
+WARN [2024-07-31 14:09:52] Este é um log de nível WARNING
+ERROR [2024-07-31 14:09:52] Este é um log de nível ERROR
+INFO [2024-07-31 14:09:53] Somando a e b: 1 + 2 = 3
