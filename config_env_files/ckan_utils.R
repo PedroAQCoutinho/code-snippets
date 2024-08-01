@@ -1,5 +1,5 @@
 library(pacman)
-p_load(httr, jsonlite, ckanr,stringr, dotenv)
+p_load(httr, jsonlite, ckanr, stringr)
 
 address <- "https://repositorio.gppesalq.agr.br"
 key <- Sys.getenv("CKAN_KEY")
