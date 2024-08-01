@@ -1,27 +1,27 @@
 { "paths": { 
-  "ckan_utils_path": "/caminho/para/ckan_utils",
-  "dados_path": "/caminho/para/dados", 
-  "log_path": "/caminho/para/logs", 
-  "aux_path": "/caminho/para/aux", 
-  "biblioteca_path": "/caminho/para/biblioteca" }, 
+  "ckan_utils_path": "/home/gitworsksace/data-tools/ckan_upload/ckan_utils",
+  "dados_path": "D:/dados/", 
+  "log_path": "log/", 
+  "aux_path": "aux/", 
+  "biblioteca_path": "biblioteca/"}, 
   
 "ckan_recursos": { 
   "aptidao": "recurso_aptidao", 
   "declividade": "recurso_declividade", 
-  "municipios": "recurso_municipios", 
-  "af": "recurso_af" }, 
+  "municipios": "recurso_municipios",
+  "novo_recurso": "codigo_dele", 
+  "af": "recurso_af"}, 
 
 "salvar_dados": { 
   "aptidao_descricao": "Dado de aptidão....", 
   "output1_descricao": "/caminho/para/salvar/output1_descricao.json", 
-  "output2_descricao": "/caminho/para/salvar/output2_descricao.json" }, 
+  "output2_descricao": "/caminho/para/salvar/output2_descricao.json"}, 
   
 "auxiliares": { 
-  "num_nucleos": 4 },
+  "num_nucleos": 4},
   
 "arquivos": { 
   "relevo": "relevo.tif",
   "aptidao": "aptidao.tif",
-  "malha": "malha.tif" }  
-  
+  "malha": "malha.tif"}  
 }
