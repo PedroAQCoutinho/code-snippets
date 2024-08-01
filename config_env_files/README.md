@@ -66,13 +66,6 @@ install.packages(c("jsonlite", "dotenv""))
    CKAN_KEY=sua_ckan_key
    ```
 
-3. **Execução do Script:**
-
-   Com todas as configurações definidas, você pode executar o script R:
-
-   ```r
-   source("run.R")
-   ```
 
 ## Considerações Finais
 
