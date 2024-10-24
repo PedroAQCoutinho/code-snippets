@@ -6,12 +6,22 @@
 #PBS -q atlas
 
 #Carrega os modulos gcc e R, necessarios para carregar o R
-module load gcc R
+module load python/3.10.1
+
+
 
 #Muda o diretorio para o diretorio do exemplo
-cd /home/atlas/exemplo/
+cd /home/pquilici/gitworkspace/code-snippets/euler_exemplo
+
+python -m venv _euler_exemplo
+
+source _euler_exemplo/bin/activate
+
+pip install pyarrow
+pip install geopandas
+pip install requests 
 
 #Faz o R ler o arquivo script.R
 #Nao se esqueca de conferir o conteudo do arquivo script.R
 
-R --no-save < script.R > output 2>&1
+python main.py > output 2>&1
