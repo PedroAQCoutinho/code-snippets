@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#PBS -N exemplo
+#PBS -N ufs
 #PBS -l select=1:ncpus=1
 #PBS -l walltime=1:00:00
 #PBS -q atlas

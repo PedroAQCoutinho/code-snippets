@@ -2,6 +2,7 @@ import os
 import requests
 import zipfile
 import geopandas as gpd
+import time
 
 # Definir a URL do arquivo e o diretório de trabalho
 url = 'https://geoftp.ibge.gov.br/organizacao_do_territorio/malhas_territoriais/malhas_municipais/municipio_2022/Brasil/BR/BR_UF_2022.zip'
@@ -27,6 +28,11 @@ with zipfile.ZipFile(zip_filename, 'r') as zip_ref:
     zip_ref.extractall(work_dir)
 
 print(f"Arquivo {zip_filename} descompactado com sucesso!")
+
+
+# Pausar por 2 minutos (120 segundos)
+time.sleep(120)
+print('Agora vai')
 
 # 3. Encontrar o arquivo .shp na pasta descompactada
 # Geralmente, o arquivo .shp é um dos arquivos extraídos
