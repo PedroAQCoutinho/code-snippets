@@ -1,6 +1,6 @@
 { "paths": { 
   "ckan_utils_path": "/home/gitworsksace/data-tools/ckan_upload/ckan_utils",
-  "dados_path": "D:/dados/", 
+  "dados_path": "dados/", 
   "log_path": "log/", 
   "aux_path": "aux/", 
   "biblioteca_path": "biblioteca/"}, 
@@ -13,7 +13,7 @@
   "af": "recurso_af"}, 
 
 "salvar_dados": { 
-  "aptidao_descricao": "Dado de aptidão....", 
+  "aptidao_descricao": "/lalala", 
   "output1_descricao": "/caminho/para/salvar/output1_descricao.json", 
   "output2_descricao": "/caminho/para/salvar/output2_descricao.json"}, 
   
