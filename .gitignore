@@ -1,6 +1,6 @@
-
-raster_row_by_row/rasters_prototipo/brasil_coverage_2020_c7_reextended_cmp.tif
-raster_row_by_row/rasters_prototipo/Y2020_hard_lapig_reextended_albers_cmp.tif
+*.tif
+_union_shapely/
 .Rproj.user
 data/
 temp/
+.Rhistory
