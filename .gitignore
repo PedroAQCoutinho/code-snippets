@@ -1,6 +1,14 @@
 *.tif
 _union_shapely/
+_euler_exemplo/
 .Rproj.user
 data/
 temp/
 .Rhistory
+*.shx
+*.prj
+*.shp
+*.zip
+*.dbf
+*.cpg
+*.parquet
