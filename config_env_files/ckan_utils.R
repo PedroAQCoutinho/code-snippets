@@ -10,6 +10,11 @@ init_ckanr <- function(){
   ckan = ckanr_setup(url = address,key = key)
   
 }
+
+
+
+
+
 download_all_resources <- function(dataset_id, path){
   resources = package_show(id = dataset_id)
   
