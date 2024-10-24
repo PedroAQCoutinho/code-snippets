@@ -3,7 +3,6 @@
 #PBS -N ufs
 #PBS -l select=1:ncpus=1
 #PBS -l walltime=1:00:00
-#PBS -q atlas
 
 #Carrega os modulos gcc e R, necessarios para carregar o R
 module load python/3.10.1
