@@ -122,6 +122,7 @@ exporta <- function(){
 
 #Inicia o cluster de processamento
 cl <- makeCluster(4, type = 'MPI', outfile='')
+clusterEvalQ(cl, { Sys.setenv(OMP_NUM_THREADS = 2) })
 options(rasterClusterObject = cl)
 options(rasterClusterCores = length(cl))
 options(rasterCluster = TRUE)

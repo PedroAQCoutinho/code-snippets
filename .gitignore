@@ -12,3 +12,6 @@ temp/
 *.dbf
 *.cpg
 *.parquet
+_code_snippets/
+cube_py/
+geopandas_manipulation/
